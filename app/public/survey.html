@@ -152,10 +152,10 @@
 
 </body>
 <script type="text/javascript">
-    console.log("Javascript is running");
+    // console.log("Javascript is running");
     $("#submit-btn").on("click", function () {
         // event.preventDefault(); 
-        console.log("I've been clicked!");
+        // console.log("I've been clicked!");
         // Form validation
         function validateForm() {
             var isValid = true;
@@ -173,11 +173,32 @@
         }
 
         if (validateForm() === true) {
-            console.log("This is filled out.")
-        } else {
-            console.log("This is NOT filled out.");
-        }
-
+			var newUser = {
+				name: $("#name").val().trim(),
+				photo: $("#photo").val().trim(),
+				scores: [
+					$("#question1").val(),
+					$("#question2").val(),
+					$("#question3").val(),
+					$("#question4").val(),
+					$("#question5").val(),
+					$("#question6").val(),
+					$("#question7").val(),
+					$("#question8").val()
+				]
+			};
+			var currentURL = window.location.origin;
+			// Ajax call for receiving response after POST req
+			$.post(currentURL + "/api/pets", newUser, function(data) {
+				$("#bestPet").text(data.name);
+				$("#bestPetPhoto").attr("src", data.photo);
+				$("#bestPetModal").modal("toggle");
+			});
+            console.log(newUser);
+		} else {
+			// If a required field is missing, show alert
+			alert("Survey is incomplete!");
+		}
     })
 </script>
 
