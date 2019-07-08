@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,33 +8,149 @@
 
     <title>PetMatcher!</title>
 
-      <!-- Favicon -->
-      <link rel="shortcut icon" type="image/png" href="#" />
-      <!-- Bootstrap Link -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <!-- Link to custom CSS -->
-      <link rel="stylesheet" href="style.css">
-      <!-- JQuery Script -->
-      <script src="https://code.jquery.com/jquery.js"></script>
-      <!-- Google Fonts -->
-      <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-  
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="#" />
+    <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- JQuery Script -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-    Start the quiz!
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <h3 id="question-heading"></h3>
-                <div id="choice-1" class="col-md-2">Strongly Disagree</div>
-                <div id="choice-2" class="col-md-2">Disagree</div>
-                <div id="choice-3" class="col-md-2">Slightly Disagree</div>
-                <div id="choice-4" class="col-md-2">Slightly Agree</div>
-                <div id="choice-5" class="col-md-2">Agree</div>
-                <div id="choice-6" class="col-md-2">Strongly Agree</div>
+                <h2>Pet Matcher Quiz:</h2>
+                <p>Answer the questions below to the best of your ability.</p>
+                <form>
+                    <div class="form-group">
+                        <input id="name" type="text" class="form-control" placeholder="Name (Required)">
+                    </div>
+                    <div class="form-group">
+                        <input id="photo" type="text" class="form-control"
+                            placeholder="Link to Profile Photo (Required)">
+                    </div>
+                    <div class="form-group">
+                        <label for="question1">I am an active person.</label>
+                        <select class="form-control" id="question1">
+                            <option value="1">Strongly Disagree</option>
+                            <option value="2">Disagree</option>
+                            <option value="3">Neutral</option>
+                            <option value="4">Agree</option>
+                            <option value="5">Strongly Agree</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="question2">I enjoy cuddling up with my pet.</label>
+                        <select class="form-control" id="question2">
+                            <option value="1">Strongly Disagree</option>
+                            <option value="2">Disagree</option>
+                            <option value="3">Neutral</option>
+                            <option value="4">Agree</option>
+                            <option value="5">Strongly Agree</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="question3">I like a pet that is independent.</label>
+                        <select class="form-control" id="question3">
+                            <option value="1">Strongly Disagree</option>
+                            <option value="2">Disagree</option>
+                            <option value="3">Neutral</option>
+                            <option value="4">Agree</option>
+                            <option value="5">Strongly Agree</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="question4">I like low-maintenence pets.</label>
+                        <select class="form-control" id="question4">
+                            <option value="1">Strongly Disagree</option>
+                            <option value="2">Disagree</option>
+                            <option value="3">Neutral</option>
+                            <option value="4">Agree</option>
+                            <option value="5">Strongly Agree</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="question5">I would like an animal that's easy to train.</label>
+                        <select class="form-control" id="question5">
+                            <option value="1">Strongly Disagree</option>
+                            <option value="2">Disagree</option>
+                            <option value="3">Neutral</option>
+                            <option value="4">Agree</option>
+                            <option value="5">Strongly Agree</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="question6">I would like an inexpensive pet.</label>
+                        <select class="form-control" id="question6">
+                            <option value="1">Strongly Disagree</option>
+                            <option value="2">Disagree</option>
+                            <option value="3">Neutral</option>
+                            <option value="4">Agree</option>
+                            <option value="5">Strongly Agree</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="question7">I would like to take my pet on trips.</label>
+                        <select class="form-control" id="question7">
+                            <option value="1">Strongly Disagree</option>
+                            <option value="2">Disagree</option>
+                            <option value="3">Neutral</option>
+                            <option value="4">Agree</option>
+                            <option value="5">Strongly Agree</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="question8">I don't mind shedding.</label>
+                        <select class="form-control" id="question8">
+                            <option value="1">Strongly Disagree</option>
+                            <option value="2">Disagree</option>
+                            <option value="3">Neutral</option>
+                            <option value="4">Agree</option>
+                            <option value="5">Strongly Agree</option>
+                        </select>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     <button id="submit-btn" href="/survey">Finish Quiz</button>
+
+    <!-- Modal -->
+    <div id="resultsModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title"><strong>Best Match</strong></h2>
+                </div>
+                <div class="modal-body">
+                    <h2 id="matchName"></h2>
+                    <img id="matchImg" src="https://via.placeholder.com/400x400"
+                        alt="Placeholder image in case user pic doesn't show">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+<script>
+$("submit-btn").on("click", function(){
+    event.preventDefault();
+
+    var isValid = true;
+    if ($(""))
+
+})
+</script>
+
 </html>
