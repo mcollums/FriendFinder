@@ -38,6 +38,7 @@
                     <div class="form-group">
                         <label for="question1">I am an active person.</label>
                         <select class="form-control" id="question1">
+                            <option value="" selected disabled hidden>Select an option</option>
                             <option value="1">Strongly Disagree</option>
                             <option value="2">Disagree</option>
                             <option value="3">Neutral</option>
@@ -48,6 +49,7 @@
                     <div class="form-group">
                         <label for="question2">I enjoy cuddling up with my pet.</label>
                         <select class="form-control" id="question2">
+                            <option value="" selected disabled hidden>Select an option</option>
                             <option value="1">Strongly Disagree</option>
                             <option value="2">Disagree</option>
                             <option value="3">Neutral</option>
@@ -58,6 +60,7 @@
                     <div class="form-group">
                         <label for="question3">I like a pet that is independent.</label>
                         <select class="form-control" id="question3">
+                            <option value="" selected disabled hidden>Select an option</option>
                             <option value="1">Strongly Disagree</option>
                             <option value="2">Disagree</option>
                             <option value="3">Neutral</option>
@@ -68,6 +71,7 @@
                     <div class="form-group">
                         <label for="question4">I like low-maintenence pets.</label>
                         <select class="form-control" id="question4">
+                            <option value="" selected disabled hidden>Select an option</option>
                             <option value="1">Strongly Disagree</option>
                             <option value="2">Disagree</option>
                             <option value="3">Neutral</option>
@@ -78,6 +82,7 @@
                     <div class="form-group">
                         <label for="question5">I would like an animal that's easy to train.</label>
                         <select class="form-control" id="question5">
+                            <option value="" selected disabled hidden>Select an option</option>
                             <option value="1">Strongly Disagree</option>
                             <option value="2">Disagree</option>
                             <option value="3">Neutral</option>
@@ -88,6 +93,7 @@
                     <div class="form-group">
                         <label for="question6">I would like an inexpensive pet.</label>
                         <select class="form-control" id="question6">
+                            <option value="" selected disabled hidden>Select an option</option>
                             <option value="1">Strongly Disagree</option>
                             <option value="2">Disagree</option>
                             <option value="3">Neutral</option>
@@ -98,6 +104,8 @@
                     <div class="form-group">
                         <label for="question7">I would like to take my pet on trips.</label>
                         <select class="form-control" id="question7">
+                            <option value="" selected disabled hidden>Select an option</option>
+
                             <option value="1">Strongly Disagree</option>
                             <option value="2">Disagree</option>
                             <option value="3">Neutral</option>
@@ -108,6 +116,8 @@
                     <div class="form-group">
                         <label for="question8">I don't mind shedding.</label>
                         <select class="form-control" id="question8">
+                            <option value="" selected disabled hidden>Select an option</option>
+
                             <option value="1">Strongly Disagree</option>
                             <option value="2">Disagree</option>
                             <option value="3">Neutral</option>
@@ -119,7 +129,7 @@
             </div>
         </div>
     </div>
-    <button id="submit-btn" href="/survey">Finish Quiz</button>
+    <button id="submit-btn">Finish Quiz</button>
 
     <!-- Modal -->
     <div id="resultsModal" class="modal fade" role="dialog">
@@ -143,14 +153,32 @@
     </div>
 
 </body>
-<script>
-$("submit-btn").on("click", function(){
-    event.preventDefault();
+<script type="text/javascript">
+    console.log("Javascript is running");
+    $("#submit-btn").on("click", function () {
+        // event.preventDefault(); 
+        console.log("I've been clicked!");
+        // Form validation
+        function validateForm() {
+            var isValid = true;
+            $('.form-control').each(function () {
+                if ($(this).val() === '')
+                    isValid = false;
+            });
+            $('.chosen-select').each(function () {
+                if ($(this).val() === "")
+                    isValid = false
+            })
+            return isValid;
+        }
 
-    var isValid = true;
-    if ($(""))
+        if (validateForm() === true) {
+            console.log("This is filled out.")
+        } else {
+            console.log("This is NOT filled out.");
+        }
 
-})
+    })
 </script>
 
 </html>
