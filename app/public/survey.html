@@ -105,7 +105,6 @@
                         <label for="question7">I would like to take my pet on trips.</label>
                         <select class="form-control" id="question7">
                             <option value="" selected disabled hidden>Select an option</option>
-
                             <option value="1">Strongly Disagree</option>
                             <option value="2">Disagree</option>
                             <option value="3">Neutral</option>
@@ -117,7 +116,6 @@
                         <label for="question8">I don't mind shedding.</label>
                         <select class="form-control" id="question8">
                             <option value="" selected disabled hidden>Select an option</option>
-
                             <option value="1">Strongly Disagree</option>
                             <option value="2">Disagree</option>
                             <option value="3">Neutral</option>
@@ -161,14 +159,16 @@
         // Form validation
         function validateForm() {
             var isValid = true;
-            $('.form-control').each(function () {
+            //If the class form-control is empty 
+            if(($('.form-control').each(function () {
                 if ($(this).val() === '')
                     isValid = false;
-            });
-            $('.chosen-select').each(function () {
+            })) 
+            || //OR if class chosen-select is empty...
+            ($('.chosen-select').each(function () {
                 if ($(this).val() === "")
                     isValid = false
-            })
+            }))) //end if statement
             return isValid;
         }
 
