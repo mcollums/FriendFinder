@@ -51,7 +51,7 @@ module.exports = function (app) {
         console.log(bestMatch);
         // Finally save the user's data to the database (this has to happen AFTER the check. otherwise,
         // the database will always return that the user is the user's best friend).
-        pets.push(newUser);
+        // pets.push(newUser);
         console.log("New User added");
         console.log(newUser);
         res.json(bestMatch);
